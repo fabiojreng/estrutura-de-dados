@@ -38,6 +38,22 @@ void exibeDequeFim(DEQUE *d){
     printf("\n");
 }
 
+int encontrarMax(DEQUE *d, int *max){
+    int resposta = 0;
+
+    PONT aux = d->cabeca->prox;
+    if(aux == d->cabeca)
+        return 0;
+    
+    while(aux != d->cabeca){
+        if(aux->prox->ch > *max)
+            *max = aux->ch;
+        aux = aux->prox;
+        resposta = 1;
+    }
+    return resposta;
+}
+
 int inserirDequeFim(DEQUE *d, int chave){
     PONT novo = (PONT)malloc(sizeof(ELEMENTO));
     novo->ch = chave;
@@ -74,7 +90,7 @@ int excluirElemDequeFinal(DEQUE *d, int *chave){
     PONT apagar = d->cabeca->ant;
     *chave = apagar->ch;
     d->cabeca->ant = apagar->ant;
-    apagar->prox = apagar->prox;
+    apagar->ant = apagar->prox;
     free(apagar);
     return 1;
 }
@@ -110,13 +126,16 @@ int main(){
     
         //inserindo no final
     inserirDequeFim(&d, 8);
-    inserirDequeFim(&d, 13);
+    inserirDequeFim(&d, 20);
+    inserirDequeFim(&d, 19);
     inserirDequeFim(&d, 3);    
 
-    //int *valor = 5;
-    //excluirElemDequeFinal(&d, &valor);
+    // int valor = 5;
+    // excluirElemDequeFinal(&d, &valor);
     exibeDequeFim(&d);
-    
+    int max = 1;
+    printf("Max: %d\n", encontrarMax(&d, &max));
+    printf("Maior: %d\n", max);
 
         //inserindo no inicio
     // inserirDequeInicio(&d, 8);

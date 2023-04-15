@@ -53,16 +53,52 @@ void exibir(PONT raiz){
     }
 }
 
+void exibirArvoreOrdemW(PONT raiz){
+    if (raiz == NULL) return;
+    exibirArvoreOrdemW(raiz->esq);
+    exibirArvoreOrdemW(raiz->dir);
+    printf("%i ",raiz->chave);
+}
 
+int max(int a, int b){
+  if(a > b) return a;
+  return b;
+}
+
+int funcaoZZZ(PONT raiz){
+    if (!raiz ) return -1;
+    return 1 + max(funcaoZZZ(raiz->esq), funcaoZZZ(raiz->dir));
+}
+
+int funcaoX(PONT raiz){
+    if (!raiz ) return 0;
+    return 1 + funcaoX(raiz->esq) + funcaoX(raiz->dir);
+}
 
 int main(){
 
     PONT r;
 
-    criarRaiz(&r, 12);
-    inserirFilho(r, 16, 12, esquerdo);
-    inserirFilho(r, 19, 12, direito);
-    exibir(r);
+    criarRaiz(&r, 1);
+    inserirFilho(r, 2, 1, direito);
+    inserirFilho(r, 3, 1, esquerdo);
+    
+    printf("FuncaoZZZ (1a exec): %d\n", funcaoZZZ(r));
+    printf("FuncaoX (1a exec): %d\n", funcaoX(r));
+    printf("Imprimindo (1a exec):");
+    exibirArvoreOrdemW(r);
+
+    inserirFilho(r, 4, 2, esquerdo);
+    inserirFilho(r, 5, 2, direito);
+    inserirFilho(r, 6, 2, esquerdo);
+    inserirFilho(r, 7, 6, direito);
+    
+    printf("FuncaoZZZ (2a exec): %d\n", funcaoZZZ(r));
+    printf("FuncaoX (2a exec): %d\n", funcaoX(r));
+    printf("Imprimindo (2a exec):");
+    exibirArvoreOrdemW(r);
+
+    
 
     return 0;
 }

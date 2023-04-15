@@ -6,7 +6,7 @@ typedef struct aux {
   struct aux *esq;
   struct aux *dir;
   int h;
-} NO, * PONT;
+} NO, *PONT;
 
 
 PONT criaNo(int ch){
@@ -107,13 +107,19 @@ int main(){
 
   PONT r = inicializa();
 
-  r = insere(r, 40);
-  r = insere(r, 20);
+  r = insere(r, 4);
+  r = insere(r, 2);
+  r = insere(r, 1);
+  r = insere(r, 3);
   r = insere(r, 10);
-  //r = insere(r, 15);
-  r = insere(r, 30);
-  r = insere(r, 35);
-  r = insere(r, 80);
+  r = insere(r, 7);
+  r = insere(r, 5);
+  r = insere(r, 8);
+  r = insere(r, 13);
+  r = insere(r, 12);
+  r = insere(r, 11);
+  r = insere(r, 15);
+  
 
 
   exibir(r);

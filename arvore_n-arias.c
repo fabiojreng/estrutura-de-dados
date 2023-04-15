@@ -57,18 +57,43 @@ void exibir(PONT raiz){
     printf(")");
 }
 
+void encontrarMinMaxRec(PONT raiz, char *min, char *max){
+    if(!raiz) return;
+    if(raiz->chave > *max)
+        *max = raiz->chave;
+    if(raiz->chave <= *min)
+        *min = raiz->chave;
+
+    PONT aux = raiz->primFilho;
+    while(aux){      
+        encontrarMinMaxRec(aux, min, max);
+        aux = aux->proxIrmao;
+    }
+}
+
+int encontrarMinMax(PONT raiz, char *min, char *max){
+    if(!raiz) return 0;
+    *min = raiz->chave;
+    *max = raiz->chave;
+    encontrarMinMaxRec(raiz, min,max);
+    return 1;
+}
 
 int main(){
 
     PONT r;
-
+    char min, max;
     inicializar(&r, 8);
 
     inserir(r, 12, 8);    
     inserir(r, 9, 8);
     inserir(r, 15, 9);
-
+    inserir(r, 5, 9);
+    inserir(r, 50, 9);
     exibir(r);
+    printf("\n%d", encontrarMinMax(r, &min, &max));
+    printf("\nMax: %d\n", max);
+    printf("Min: %d\n", min);
 
     return 0;
 }
