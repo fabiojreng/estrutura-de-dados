@@ -1,7 +1,7 @@
 # Estrutura de Dados
 
 # Estrutura de Dados em C
-Este repositório contém exemplos e implementações de estrutura de dados em C. Os códigos foram desenvolvidos pelo autor Fábio da Silva Eloi Júnior.
+Este repositório contém exemplos e implementações de estrutura de dados em C. Os códigos foram desenvolvidos pelo autor Fábio da Silva Eloi Júnior durante o semestre de 2023/1, nas aulas do curso Bacharelado Engenharia da Computação.
 
 # Conteúdo
 O repositório contém os seguintes tópicos: listas encadeadas (estáticas e dinâmicas) e listas duplamente encadeadas; pilha: pilhas dinâmicas; fila: filas dinâmicas; arvore: árvores binárias, árvores n-árias, árvores de busca e árvores avl
