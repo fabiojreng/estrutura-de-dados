@@ -5,7 +5,7 @@ typedef struct aux{
     int ch;
     struct aux *ant;
     struct aux *prox;
-} ELEMENTO, *PONT; // PONT eh um ponteiro para ELEMENTO 
+} ELEMENTO, *PONT;
 
 typedef struct{
     PONT cabeca;
@@ -124,7 +124,7 @@ int main(){
 
     inicializar(&d);
     
-        //inserindo no final
+    //inserindo no final
     inserirDequeFim(&d, 8);
     inserirDequeFim(&d, 20);
     inserirDequeFim(&d, 19);
